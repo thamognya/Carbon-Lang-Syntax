@@ -1,0 +1,25 @@
+{
+  "name": "carbon-lang",
+  "displayName": "Carbon Lang",
+  "description": "This extension provides support for the experimental programming language carbon.",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.70.0"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "contributes": {
+    "languages": [{
+      "id": "carbon",
+      "aliases": ["carbon", "carbon"],
+      "extensions": [".carbon"],
+      "configuration": "./language-configuration.json"
+    }],
+    "grammars": [{
+      "language": "carbon",
+      "scopeName": "source.carbon",
+      "path": "./syntaxes/carbon.tmLanguage.json"
+    }]
+  }
+}
