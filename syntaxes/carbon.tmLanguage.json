@@ -1,32 +1,95 @@
 {
-	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
-	"name": "carbon",
-	"patterns": [
-		{
-			"include": "#keywords"
-		},
-		{
-			"include": "#strings"
-		}
-	],
-	"repository": {
-		"keywords": {
-			"patterns": [{
-				"name": "keyword.control.carbon",
-				"match": "\\b(if|while|for|return)\\b"
-			}]
-		},
-		"strings": {
-			"name": "string.quoted.double.carbon",
-			"begin": "\"",
-			"end": "\"",
-			"patterns": [
-				{
-					"name": "constant.character.escape.carbon",
-					"match": "\\\\."
-				}
-			]
-		}
-	},
-	"scopeName": "source.carbon"
+    "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+    "name": "carbon",
+    "patterns": [
+        {
+            "include": "#keywords"
+        },
+        {
+            "include": "#comments"
+        },
+        {
+            "include": "#strings"
+        },
+        {
+            "include": "#longStrings"
+        },
+        {
+            "include": "#variables"
+        }
+    ],
+    "repository": {
+        "keywords": {
+            "patterns": [
+                {
+                    "name": "keyword.control.carbon",
+                    "match": "\\b(if|then|else|while|for|return|in|as|break|case|match|constraint|let|var|)\\b"
+                },
+                {
+                    "name": "keyword.experimental.carbon",
+                    "match": "\\b(__run|__continuation|__await)\\b"
+                },
+                {
+                    "name": "keyword.storage.carbon",
+                    "match": "\\b(fn|class|impl|interface|choice)\\b"
+                },
+                {
+                    "name": "keyword.other.carbon",
+                    "match": "\\b(import|library|package|api|alias|where|external|returned|and|library)\\b"
+                }
+            ]
+        },
+        "comments": {
+            "patterns": [
+                {
+                    "begin": "//",
+                    "end": "\\n",
+                    "name": "comment.block.empty.tpl"
+                }
+            ]
+        },
+        "strings": {
+            "name": "string.quoted.double.carbon",
+            "begin": "\"",
+            "end": "\"",
+            "patterns": [
+                {
+                    "name": "constant.character.escape.carbon",
+                    "match": "\\\\."
+                }
+            ]
+        },
+        "longStrings": {
+            "name": "string.quoted.double.carbon",
+            "begin": "\"\"\"",
+            "end": "\"\"\"",
+            "patterns": [
+                {
+                    "name": "constant.character.escape.carbon",
+                    "match": "\\\\."
+                }
+            ]
+        },
+        "variables": {
+            "patterns": [
+                {
+                    "match": "\\b(false|null|true)\\b",
+                    "name": "constant.language.carbon"
+                },
+                {
+                    "match": "\\b(0[xX][0-9a-fA-F_]*)\\b",
+                    "name": "constant.numeric.carbon"
+                },
+                {
+                    "match": "\\b(([0-9][0-9_]*(\\.[0-9][0-9_]*)?)([eE](\\+|-)?[0-9][0-9_]*)?|[0-9][0-9_]*)[LlFfDd]?\\b",
+                    "name": "constant.numeric.carbon"
+                },
+                {
+                    "match": "(\\.[0-9][0-9_]*)([eE](\\+|-)?[0-9][0-9_]*)?[LlFfDd]?\\b",
+                    "name": "constant.numeric.carbon"
+                }
+            ]
+        }
+    },
+    "scopeName": "source.carbon"
 }
