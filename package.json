@@ -1,8 +1,11 @@
 {
   "name": "carbon-lang",
   "displayName": "Carbon Lang",
+  "publisher": "thamognya",
   "description": "This extension provides support for the experimental programming language carbon.",
-  "version": "0.0.1",
+  "version": "0.0.3",
+  "icon": "assets/carbon_logo.png",
+  "repository": "git+https://github.com/thamognya/Carbon-Lang-Syntax.git",
   "engines": {
     "vscode": "^1.70.0"
   },
@@ -10,16 +13,25 @@
     "Programming Languages"
   ],
   "contributes": {
-    "languages": [{
-      "id": "carbon",
-      "aliases": ["carbon", "carbon"],
-      "extensions": [".carbon"],
-      "configuration": "./language-configuration.json"
-    }],
-    "grammars": [{
-      "language": "carbon",
-      "scopeName": "source.carbon",
-      "path": "./syntaxes/carbon.tmLanguage.json"
-    }]
+    "languages": [
+      {
+        "id": "carbon",
+        "aliases": [
+          "carbon",
+          "carbon"
+        ],
+        "extensions": [
+          ".carbon"
+        ],
+        "configuration": "./language-configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "carbon",
+        "scopeName": "source.carbon",
+        "path": "./syntaxes/carbon.tmLanguage.json"
+      }
+    ]
   }
 }
