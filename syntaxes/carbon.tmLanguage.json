@@ -3,155 +3,109 @@
     "name": "Carbon",
     "patterns": [
         {
-            "include": "#control"
-        },
-        {
-            "include": "#other"
-        },
-        {
             "include": "#keywords"
-        },
-        {
-            "include": "experimental"
         },
         {
             "include": "#strings"
         },
         {
-            "include": "#longStrings"
-        },
-        {
             "include": "#comments"
         },
         {
-            "include": "#longComments"
+            "include": "#constants"
         },
         {
-            "include": "#constants"
+            "include": "dataTypes"
         }
     ],
     "repository": {
-        "control": {
-            "name": "keyword.carbon",
-            "patterns": [
-                {
-                    "match": "\\b(if|else|then|for|while|in|as|break|return|case|match|constraint)\\b"
-                }
-            ]
-        },
-        "other": {
-            "name": "other.carbon",
-            "patterns": [
-                {
-                    "match": "\\b(import|package|api|library|alias|where|external|returned|and|addr)\\b"
-                }
-            ]
-        },
         "keywords": {
             "patterns": [
                 {
-                    "name": "storage.type.fn.carbon",
-                    "match": "\\b(fn)\\b"
+                    "match": "\\b(if|then|else|while|for|in|as|break|return|var|let|match|case|constraint|addr)\\b",
+                    "name": "keyword.control.carbon"
                 },
                 {
-                    "name": "storage.type.impl.carbon",
-                    "match": "\\b(impl)\\b"
+                    "match": "\\b(fn|impl|class|interface|choice)\\b",
+                    "name": "keyword.storage.carbon"
                 },
                 {
-                    "name": "storage.type.class.carbon",
-                    "match": "\\b(class)\\b"
+                    "match": "\\b(__continuation|__run|__await)\\b",
+                    "name": "keyword.experimental.carbon"
                 },
                 {
-                    "name": "storage.type.interface.carbon",
-                    "match": "\\b(interface)\\b"
+                    "match": "\\b(base|abstract|virtual|protected|destructor|namespace|private)\\b",
+                    "name": "keyword.WIP.carbon"
                 },
                 {
-                    "name": "storage.type.var.carbon",
-                    "match": "\\b(var)\\b"
-                },
-                {
-                    "name": "storage.type.let.carbon",
-                    "match": "\\b(let)\\b"
-                },
-                {
-                    "name": "storage.type.const.carbon",
-                    "match": "\\b(const)\\b"
-                },
-                {
-                    "name": "storage.type.interface.carbon",
-                    "match": "\\b(interface)\\b"
-                },
-                {
-                    "name": "storage.type.choice.carbon",
-                    "match": "\\b(choice)\\b"
-                }
-            ]
-        },
-        "experimental": {
-            "name": "experimental.carbon",
-            "patterns": [
-                {
-                    "match": "\\b(__continuation|__run|__await)\\"
-                }
-            ]
-        },
-        "strings": {
-            "name": "strings.quoted.double.carbon",
-            "begin": "\"",
-            "end": "\"",
-            "patterns": [
-                {
-                    "name": "constant.character.escape.carbon",
-                    "match": "\\\\."
-                }
-            ]
-        },
-        "longStrings": {
-            "name": "longStrings.quoted.double.carbon",
-            "begin": "\"\"\"",
-            "end": "\"\"\"",
-            "patterns": [
-                {
-                    "name": "constant.character.escape.carbon",
-                    "match": "\\\\."
+                    "match": "\\b(import|package|library|api|alias|external|where|returned|library|and|addr)\\b",
+                    "name": "keyword.other.carbon"
                 }
             ]
         },
         "comments": {
-            "name": "comment.block.empty.tpl",
             "patterns": [
                 {
                     "begin": "//",
-                    "end": "\\n"
+                    "end": "\\n",
+                    "name": "comments.line.carbon"
+                },
+                {
+                    "begin": "/*",
+                    "end": "*/",
+                    "name": "comments.line.long.carbon"
                 }
             ]
         },
-        "longComments": {
-            "name": "comment.block.empty.tpl",
+        "strings": {
             "patterns": [
                 {
-                    "begin": "/*",
-                    "end": "*/"
+                    "name": "strings.quoted.carbon",
+                    "begin": "\"",
+                    "end": "\"",
+                    "match": "\\\\."
+                },
+                {
+                    "name": "strings.long.carbon",
+                    "begin": "\"\"\"",
+                    "end": "\"\"\"",
+                    "match": "\\\\."
                 }
             ]
         },
         "constants": {
             "patterns": [
                 {
-                    "match": "\\b(false|null|true)\\b",
+                    "match": "\\b(true|false)\\b",
                     "name": "constant.bool.carbon"
                 },
                 {
                     "match": "\\b(0[xX][0-9a-fA-F_]*)\\b",
-                    "name": "constant.numeric.carbon"
+                    "name": "constant.numeric.hex.carbon"
                 },
                 {
                     "match": "\\b(([0-9][0-9_]*(\\.[0-9][0-9_]*)?)([eE](\\+|-)?[0-9][0-9_]*)?|[0-9][0-9_]*)[LlFfDd]?\\b",
-                    "name": "constant.numeric.carbon"
+                    "name": "constant.numeric.common.carbon"
                 },
                 {
                     "match": "(\\.[0-9][0-9_]*)([eE](\\+|-)?[0-9][0-9_]*)?[LlFfDd]?\\b",
-                    "name": "constant.numeric.carbon"
+                    "name": "constant.numeric.float.carbon"
+                },
+                {
+                    "match": "\\b(null)\\b",
+                    "name": "constant.other.carbon"
+                }
+            ]
+        },
+        "dataTypes": {
+            "patterns": [
+                {
+                    "match": "\\b(i8,i16,i32,i64,i128,i256,u8,u16,u32,u64,u128)\\b",
+                    "name": "dataTypes.int.carbon"
+                },
+                {
+                    "match": "\\b(String,StringView)\\b",
+                    "name": "dataTypes.string.carbon"
                 }
             ]
         }

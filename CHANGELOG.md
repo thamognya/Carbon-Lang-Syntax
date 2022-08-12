@@ -12,3 +12,7 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
 
 - added few more keywords
 - getting ready for code rewite to make it cleaner and better
+
+## [0.0.7]
+
+- got formatting inspo from [https://github.com/kination/vscode-carbon-syntax](https://github.com/kination/vscode-carbon-syntax) (go check it out) for rewrite. Gonna use it for the rewrite later on.
