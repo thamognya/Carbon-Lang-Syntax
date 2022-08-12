@@ -3,7 +3,7 @@
   "displayName": "Carbon Lang",
   "publisher": "thamognya",
   "description": "This extension provides support for the experimental programming language carbon.",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "icon": "assets/carbon_logo.png",
   "repository": "git+https://github.com/thamognya/Carbon-Lang-Syntax.git",
   "engines": {
