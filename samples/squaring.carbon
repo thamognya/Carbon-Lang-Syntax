@@ -8,3 +8,5 @@ fn Main() -> i32 {
     Print("{0}", Square(1000));
     return 0;
 }
+//
+/**/

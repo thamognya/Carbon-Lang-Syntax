@@ -43,32 +43,22 @@
                 }
             ]
         },
-        "comments": {
-            "patterns": [
-                {
-                    "begin": "//",
-                    "end": "\\n",
-                    "name": "comments.line.carbon"
-                },
-                {
-                    "begin": "/*",
-                    "end": "*/",
-                    "name": "comments.line.long.carbon"
-                }
-            ]
-        },
+		"comments": {
+			"patterns": [
+				{
+					"begin": "//",
+					"end": "\\n",
+					"name": "comment.block.empty.tpl"
+				}
+			]
+		},
         "strings": {
+            "name": "string.quoted.double.carbon",
+            "begin": "\"",
+            "end": "\"",
             "patterns": [
                 {
-                    "name": "strings.quoted.carbon",
-                    "begin": "\"",
-                    "end": "\"",
-                    "match": "\\\\."
-                },
-                {
-                    "name": "strings.long.carbon",
-                    "begin": "\"\"\"",
-                    "end": "\"\"\"",
+                    "name": "constant.character.escape.carbon",
                     "match": "\\\\."
                 }
             ]
