@@ -1,81 +1,95 @@
 {
-  "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
-  "name": "Carbon",
-  "patterns": [
-    {
-      "include": "#keywords"
-    },
-    {
-      "include": "#strings"
-    },
-    {
-      "include": "#comments"
-    },
-    {
-      "include": "#constants"
-    }
-  ],
-  "repository": {
-    "keywords": {
-      "patterns": [
+    "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+    "name": "Carbon",
+    "patterns": [
         {
-          "name": "keyword.control.carbon",
-          "match": "\\b(if|then|else|while|for|in|as|break|return|var|let|match|case|constraint)\\b"
+            "include": "#control"
         },
         {
-          "name": "keyword.storage.carbon",
-          "match": "\\b(fn|impl|class|interface|choice)\\b"
+            "include": "#strings"
         },
         {
-          "name": "keyword.experimental.carbon",
-          "match": "\\b(__continuation|__run|__await)\\b"
+            "include": "#longStrings"
         },
         {
-          "name": "keyword.other.carbon",
-          "match": "\\b(import|package|library|api|alias|external|where|returned|library|and)\\b"
+            "include": "#comments"
+        },
+        {
+            "include": "#longComments"
+        },
+        {
+            "include": "#constants"
         }
-      ]
-    },
-    "comments": {
-      "patterns": [
-        {
-          "begin": "//",
-          "end": "\\n",
-          "name": "comment.block.empty.tpl"
-        }
-      ]
-    },
-    "strings": {
-      "name": "string.quoted.double.carbon",
-      "begin": "\"",
-      "end": "\"",
-      "patterns": [
-        {
-          "name": "constant.character.escape.carbon",
-          "match": "\\\\."
-        }
-      ]
-    },
-    "constants": {
-      "patterns": [
-        {
-          "match": "\\b(false|null|true)\\b",
-          "name": "constant.language.carbon"
+    ],
+    "repository": {
+        "control": {
+            "name": "keyword.control.carbon",
+            "patterns": [
+                {
+                    "match": "\\b(if|then|else|while|for|in|as|break|return|var|let|match|case|constraint)\\b"
+                }
+            ]
         },
-        {
-          "match": "\\b(0[xX][0-9a-fA-F_]*)\\b",
-          "name": "constant.numeric.carbon"
+        "strings": {
+            "name": "string.quoted.double.carbon",
+            "begin": "\"",
+            "end": "\"",
+            "patterns": [
+                {
+                    "name": "constant.character.escape.carbon",
+                    "match": "\\\\."
+                }
+            ]
         },
-        {
-          "match": "\\b(([0-9][0-9_]*(\\.[0-9][0-9_]*)?)([eE](\\+|-)?[0-9][0-9_]*)?|[0-9][0-9_]*)[LlFfDd]?\\b",
-          "name": "constant.numeric.carbon"
+        "longStrings": {
+            "name": "string.quoted.double.carbon",
+            "begin": "\"\"\"",
+            "end": "\"\"\"",
+            "patterns": [
+                {
+                    "name": "constant.character.escape.carbon",
+                    "match": "\\\\."
+                }
+            ]
         },
-        {
-          "match": "(\\.[0-9][0-9_]*)([eE](\\+|-)?[0-9][0-9_]*)?[LlFfDd]?\\b",
-          "name": "constant.numeric.carbon"
+        "comments": {
+            "patterns": [
+                {
+                    "begin": "//",
+                    "end": "\\n",
+                    "name": "comment.block.empty.tpl"
+                }
+            ]
+        },
+        "longComments": {
+            "patterns": [
+                {
+                    "begin": "/*",
+                    "end": "*/",
+                    "name": "comment.block.empty.tpl"
+                }
+            ]
+        },
+        "constants": {
+            "patterns": [
+                {
+                    "match": "\\b(false|null|true)\\b",
+                    "name": "constant.language.carbon"
+                },
+                {
+                    "match": "\\b(0[xX][0-9a-fA-F_]*)\\b",
+                    "name": "constant.numeric.carbon"
+                },
+                {
+                    "match": "\\b(([0-9][0-9_]*(\\.[0-9][0-9_]*)?)([eE](\\+|-)?[0-9][0-9_]*)?|[0-9][0-9_]*)[LlFfDd]?\\b",
+                    "name": "constant.numeric.carbon"
+                },
+                {
+                    "match": "(\\.[0-9][0-9_]*)([eE](\\+|-)?[0-9][0-9_]*)?[LlFfDd]?\\b",
+                    "name": "constant.numeric.carbon"
+                }
+            ]
         }
-      ]
-    }
-  },
-  "scopeName": "source.carbon"
+    },
+    "scopeName": "source.carbon"
 }
