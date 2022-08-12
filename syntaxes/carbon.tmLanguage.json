@@ -6,6 +6,15 @@
             "include": "#control"
         },
         {
+            "include": "#other"
+        },
+        {
+            "include": "#keywords"
+        },
+        {
+            "include": "experimental"
+        },
+        {
             "include": "#strings"
         },
         {
@@ -23,15 +32,71 @@
     ],
     "repository": {
         "control": {
-            "name": "keyword.control.carbon",
+            "name": "keyword.carbon",
             "patterns": [
                 {
-                    "match": "\\b(if|then|else|while|for|in|as|break|return|var|let|match|case|constraint)\\b"
+                    "match": "\\b(if|else|then|for|while|in|as|break|return|case|match|constraint)\\b"
+                }
+            ]
+        },
+        "other": {
+            "name": "other.carbon",
+            "patterns": [
+                {
+                    "match": "\\b(import|package|api|library|alias|where|external|returned|and|addr)\\b"
+                }
+            ]
+        },
+        "keywords": {
+            "patterns": [
+                {
+                    "name": "storage.type.fn.carbon",
+                    "match": "\\b(fn)\\b"
+                },
+                {
+                    "name": "storage.type.impl.carbon",
+                    "match": "\\b(impl)\\b"
+                },
+                {
+                    "name": "storage.type.class.carbon",
+                    "match": "\\b(class)\\b"
+                },
+                {
+                    "name": "storage.type.interface.carbon",
+                    "match": "\\b(interface)\\b"
+                },
+                {
+                    "name": "storage.type.var.carbon",
+                    "match": "\\b(var)\\b"
+                },
+                {
+                    "name": "storage.type.let.carbon",
+                    "match": "\\b(let)\\b"
+                },
+                {
+                    "name": "storage.type.const.carbon",
+                    "match": "\\b(const)\\b"
+                },
+                {
+                    "name": "storage.type.interface.carbon",
+                    "match": "\\b(interface)\\b"
+                },
+                {
+                    "name": "storage.type.choice.carbon",
+                    "match": "\\b(choice)\\b"
+                }
+            ]
+        },
+        "experimental": {
+            "name": "experimental.carbon",
+            "patterns": [
+                {
+                    "match": "\\b(__continuation|__run|__await)\\"
                 }
             ]
         },
         "strings": {
-            "name": "string.quoted.double.carbon",
+            "name": "strings.quoted.double.carbon",
             "begin": "\"",
             "end": "\"",
             "patterns": [
@@ -42,7 +107,7 @@
             ]
         },
         "longStrings": {
-            "name": "string.quoted.double.carbon",
+            "name": "longStrings.quoted.double.carbon",
             "begin": "\"\"\"",
             "end": "\"\"\"",
             "patterns": [
@@ -53,20 +118,20 @@
             ]
         },
         "comments": {
+            "name": "comment.block.empty.tpl",
             "patterns": [
                 {
                     "begin": "//",
-                    "end": "\\n",
-                    "name": "comment.block.empty.tpl"
+                    "end": "\\n"
                 }
             ]
         },
         "longComments": {
+            "name": "comment.block.empty.tpl",
             "patterns": [
                 {
                     "begin": "/*",
-                    "end": "*/",
-                    "name": "comment.block.empty.tpl"
+                    "end": "*/"
                 }
             ]
         },
@@ -74,7 +139,7 @@
             "patterns": [
                 {
                     "match": "\\b(false|null|true)\\b",
-                    "name": "constant.language.carbon"
+                    "name": "constant.bool.carbon"
                 },
                 {
                     "match": "\\b(0[xX][0-9a-fA-F_]*)\\b",
